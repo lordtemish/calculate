@@ -1,0 +1,14 @@
+com/dynamica/calculate/Classes/StatusObject.class
+com/dynamica/calculate/Repo/BrandRepo.class
+com/dynamica/calculate/DataClasses/Model.class
+com/dynamica/calculate/Classes/Freeze.class
+com/dynamica/calculate/DataClasses/Brand.class
+com/dynamica/calculate/Classes/DVS.class
+com/dynamica/calculate/Classes/KPP.class
+com/dynamica/calculate/CalcApplication.class
+com/dynamica/calculate/DataClasses/Car.class
+com/dynamica/calculate/Repo/CarRepo.class
+com/dynamica/calculate/Controllers/MainController.class
+com/dynamica/calculate/Classes/Filters.class
+com/dynamica/calculate/Classes/Reductor.class
+com/dynamica/calculate/Repo/ModelRepo.class
