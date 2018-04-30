@@ -2,6 +2,7 @@
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Classes/Freeze.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Classes/Filters.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Classes/DVS.java
+/home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Forms/BrandForm.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/DataClasses/Model.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Controllers/MainController.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Classes/KPP.java
@@ -12,3 +13,4 @@
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/CalcApplication.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/DataClasses/Car.java
 /home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Repo/BrandRepo.java
+/home/lordtemich/IdeaProjects/calculate/src/main/java/com/dynamica/calculate/Forms/ModelForm.java

@@ -4,15 +4,21 @@ import com.dynamica.calculate.Classes.*;
 import com.dynamica.calculate.DataClasses.Brand;
 import com.dynamica.calculate.DataClasses.Car;
 import com.dynamica.calculate.DataClasses.Model;
+import com.dynamica.calculate.Forms.BrandForm;
+import com.dynamica.calculate.Forms.ModelForm;
 import com.dynamica.calculate.Repo.BrandRepo;
 import com.dynamica.calculate.Repo.CarRepo;
 import com.dynamica.calculate.Repo.ModelRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+import java.util.List;
+@CrossOrigin(maxAge = 3600)
 @Controller
-public class MainController {
+public class MainController  {
     @Autowired
     public BrandRepo brandRepo;
     @Autowired
@@ -30,7 +36,18 @@ public class MainController {
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public
-    String getT(){
+    String getT(org.springframework.ui.Model model){
+        List<BrandForm> brandForms=new ArrayList<>();
+        for(Brand i:brandRepo.findAll()){
+            BrandForm brandForm=new BrandForm(i);
+            for(Model j:modelRepo.findBybrandid(i.getId())){
+                ModelForm modelForm=new ModelForm(j);
+                modelForm.setCars(carRepo.findBymodelid(j.getId()));
+                brandForm.addModel(modelForm);
+            }
+            brandForms.add(brandForm);
+        }
+        model.addAttribute("form",brandForms);
         return "index";
     }
     @RequestMapping(value = "/addBrand",method = RequestMethod.POST)
@@ -280,6 +297,73 @@ public class MainController {
             car.setFilters(new Filters(air,oilDVS,interior,fuel,KPP));
             carRepo.save(car);
             return new StatusObject("ok");
+        }
+        catch (Exception e){
+            return new StatusObject(e.getMessage());
+        }
+    }
+
+    @RequestMapping(value = "/getAllModelsForm",method = RequestMethod.POST)
+    public @ResponseBody Object getModelsForm(){
+        try{
+            List<BrandForm> brandForms=new ArrayList<>();
+            for(Brand i:brandRepo.findAll()){
+                BrandForm brandForm=new BrandForm(i);
+                for(Model j:modelRepo.findBybrandid(i.getId())){
+                    brandForm.addModel(new ModelForm(j));
+                }
+                brandForms.add(brandForm);
+            }
+            return brandForms;
+        }
+        catch (Exception e){
+            return new StatusObject(e.getMessage());
+        }
+    }
+    @RequestMapping(value = "/getModelFormsByBrandid",method = RequestMethod.POST)
+    public @ResponseBody Object getModelByBrandid(@RequestParam String brandid){
+        try{
+                Brand i=brandRepo.findByid(brandid);
+                BrandForm brandForm=new BrandForm(i);
+                for(Model j:modelRepo.findBybrandid(i.getId())){
+                    brandForm.addModel(new ModelForm(j));
+                }
+
+            return brandForm;
+        }
+        catch (Exception e){
+            return new StatusObject(e.getMessage());
+        }
+    }
+
+    @CrossOrigin("*")
+    @RequestMapping(value = "/getAllCarsForm",method = RequestMethod.POST)
+    public @ResponseBody Object getCarsForm(){
+        try{
+            List<BrandForm> brandForms=new ArrayList<>();
+            for(Brand i:brandRepo.findAll()){
+                BrandForm brandForm=new BrandForm(i);
+                for(Model j:modelRepo.findBybrandid(i.getId())){
+                    ModelForm modelForm=new ModelForm(j);
+                    modelForm.setCars(carRepo.findBymodelid(j.getId()));
+                    brandForm.addModel(modelForm);
+                }
+                brandForms.add(brandForm);
+            }
+            return brandForms;
+        }
+        catch (Exception e){
+            return new StatusObject(e.getMessage());
+        }
+    }
+    @RequestMapping(value = "/getCarsFormByModelid",method = RequestMethod.POST)
+    public @ResponseBody Object getCarsFormByModelid(@RequestParam String modelid){
+        try{
+                    Model model=modelRepo.findByid(modelid);
+                    ModelForm modelForm=new ModelForm(model);
+                    modelForm.setCars(carRepo.findBymodelid(model.getId()));
+                    return modelForm;
+
         }
         catch (Exception e){
             return new StatusObject(e.getMessage());

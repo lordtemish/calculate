@@ -8,5 +8,21 @@ public class Reductor{
         this.liter=liter;
         this.type=reductor;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public float getLiter() {
+        return liter;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setLiter(float liter) {
+        this.liter = liter;
+    }
 }
 

@@ -1,7 +1,9 @@
 com/dynamica/calculate/Classes/StatusObject.class
 com/dynamica/calculate/Repo/BrandRepo.class
 com/dynamica/calculate/DataClasses/Model.class
+com/dynamica/calculate/Forms/ModelForm.class
 com/dynamica/calculate/Classes/Freeze.class
+com/dynamica/calculate/Forms/BrandForm.class
 com/dynamica/calculate/DataClasses/Brand.class
 com/dynamica/calculate/Classes/DVS.class
 com/dynamica/calculate/Classes/KPP.class

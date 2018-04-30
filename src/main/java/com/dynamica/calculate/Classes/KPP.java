@@ -11,5 +11,29 @@ public class KPP{
         this.liter=liter;
         this.oilType=oilType;
     }
+
+    public float getLiter() {
+        return liter;
+    }
+
+    public String getOilType() {
+        return oilType;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setLiter(float liter) {
+        this.liter = liter;
+    }
+
+    public void setOilType(String oilType) {
+        this.oilType = oilType;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
 

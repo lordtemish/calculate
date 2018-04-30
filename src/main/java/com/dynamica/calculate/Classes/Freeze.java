@@ -9,4 +9,12 @@ public class Freeze{
         this.freezeSystem=freezeSystem;
 
     }
+
+    public float getFreezeSystem() {
+        return freezeSystem;
+    }
+
+    public String getAntiFreezeType() {
+        return antiFreezeType;
+    }
 }
